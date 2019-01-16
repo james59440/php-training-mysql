@@ -24,6 +24,8 @@ vous allez récupérer sur le site internet [randopitons.re](https://www.randopi
 
 Il faut insérer 5 randonnées. Chaque randonnée devra renseigner les champs :
 * name
+
+
 * difficulty (très facile, facile, etc.)
 * distance
 * duration
@@ -64,7 +66,6 @@ Imaginons qu'on s'est trompé en rentrant les informations de la randonnée, il 
 Le fichier *update.php* a été créé pour ça.
 
 Tout d'abord, dans le tableau des randonnées du fichier *read.php*, ajoutez un lien sur le nom de chaque randonnée. Ce lien renverra vers la page *update.php*.
-
 Sur cette page on va pouvoir faire les modifications pour la randonnée choisie. Les champs du formulaire présents sur cette page doivent être pré-remplis à partir
 des informations de la randonnée choisie !
 

@@ -1,3 +1,21 @@
+
+<?php
+
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "reunion_island";
+$conn = new mysqli($servername, $username, $password);
+if ($conn->connect_error){
+    die("Connection failed: " . $conn->connect_error);
+}
+else{
+    $conn->select_db($dbname);
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,9 +24,9 @@
 	<link rel="stylesheet" href="css/basics.css" media="screen" title="no title" charset="utf-8">
 </head>
 <body>
-	<a href="/php-pdo/read.php">Liste des données</a>
+	<a href="read.php">Liste des données</a>
 	<h1>Ajouter</h1>
-	<form action="" method="post">
+	<form name="form"  action="create.php" method="post">
 		<div>
 			<label for="name">Name</label>
 			<input type="text" name="name" value="">
@@ -41,3 +59,37 @@
 	</form>
 </body>
 </html>
+
+<?php
+
+
+function add (){
+
+    global $conn;
+
+    if (isset($_POST['name'])
+        && $_POST['difficulty'] != ''
+        && $_POST['distance'] != ''
+            && $_POST['duration']!= ''
+                && $_POST['height_difference'] !=''
+                    && isset($_POST['button'])
+                )
+
+        $nom = $_POST['name'];
+    $dif= $_POST['difficulty'];
+    $dist = $_POST['distance'];
+    $dure = $_POST['duration'];
+    $hauteur = $_POST['height_difference'];
+
+
+    $sql = "INSERT INTO hiking VALUES (NULL ,'$nom','$dif',$dist,'$dure',$hauteur )";
+    $conn->query($sql);
+
+
+}
+add();
+
+
+
+?>
+
